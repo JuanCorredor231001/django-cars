@@ -1,0 +1,10 @@
+.env
+venv/
+__pycache__/
+*.pyc
+logs/
+reports/*.tmp
+db.sqlite3
+staticfiles/
+.pytest_cache/
+.claude/settings.local.json

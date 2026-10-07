@@ -1,0 +1,44 @@
+{% extends "frontend/base.html" %}
+{% block title %}Panel · Concesionario{% endblock %}
+{% block body %}
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand">Concesionario</span>
+    <div><a class="btn btn-sm btn-outline-light me-2" href="/api/docs/" target="_blank" rel="noopener">API</a>
+      <button class="btn btn-sm btn-outline-light" id="btn-salir">Salir</button></div>
+  </div>
+</nav>
+<div class="container-fluid py-3">
+  <ul class="nav nav-tabs mb-3" id="tabs"></ul>
+  <div class="d-flex gap-2 mb-3">
+    <input class="form-control" id="buscar" placeholder="Buscar…" style="max-width:320px">
+    <button class="btn btn-primary" id="btn-nuevo">Nuevo</button>
+  </div>
+  <div id="aviso" class="alert alert-danger d-none"></div>
+  <div class="table-responsive bg-white border rounded">
+    <table class="table table-sm table-hover mb-0"><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+  </div>
+  <nav class="mt-2 d-flex gap-2 align-items-center">
+    <button class="btn btn-sm btn-outline-secondary" id="prev">‹</button>
+    <span id="pagina" class="small"></span>
+    <button class="btn btn-sm btn-outline-secondary" id="next">›</button>
+  </nav>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1">
+  <div class="modal-dialog"><form class="modal-content" id="form">
+    <div class="modal-header"><h5 class="modal-title" id="modal-titulo"></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body" id="campos"></div>
+    <div class="modal-footer">
+      <div id="form-error" class="text-danger small me-auto"></div>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+  </form></div>
+</div>
+{% endblock %}
+{% block scripts %}
+{% load static %}
+<script src="{% static 'frontend/app.js' %}"></script>
+{% endblock %}
